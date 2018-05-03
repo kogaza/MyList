@@ -9397,7 +9397,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		function App() {
 			_classCallCheck(this, App);
 
-			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+			_this.state = {
+				counter: 0,
+				sumCounter: 0,
+				sumDouble: 0
+			};
+			return _this;
 		}
 
 		_createClass(App, [{
@@ -9406,6 +9413,31 @@ document.addEventListener('DOMContentLoaded', function () {
 				return _react2.default.createElement(
 					'div',
 					null,
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.increment.bind(this) },
+						'+'
+					),
+					_react2.default.createElement(
+						'output',
+						{ onDoubleClick: this.sumDouble.bind(this) },
+						this.state.counter
+					),
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.decrement.bind(this) },
+						'-'
+					),
+					_react2.default.createElement(
+						'output',
+						{ onDoubleClick: this.sumDouble.bind(this) },
+						this.state.sumCounter
+					),
+					_react2.default.createElement(
+						'output',
+						{ onDoubleClick: this.sumDouble.bind(this) },
+						this.state.sumDouble
+					),
 					_react2.default.createElement(AppHeader, null),
 					_react2.default.createElement(
 						'main',
@@ -9413,6 +9445,29 @@ document.addEventListener('DOMContentLoaded', function () {
 						_react2.default.createElement(ContactList, null)
 					)
 				);
+			}
+		}, {
+			key: 'increment',
+			value: function increment() {
+				this.setState({
+					counter: this.state.counter + 1,
+					sumCounter: this.state.sumCounter + 1
+				});
+			}
+		}, {
+			key: 'decrement',
+			value: function decrement() {
+				this.setState({
+					counter: this.state.counter - 1,
+					sumCounter: this.state.sumCounter + 1
+				});
+			}
+		}, {
+			key: 'sumDouble',
+			value: function sumDouble() {
+				this.setState({
+					sumDouble: this.state.sumDouble + 1
+				});
 			}
 		}]);
 
@@ -9440,7 +9495,7 @@ document.addEventListener('DOMContentLoaded', function () {
 						_react2.default.createElement(
 							'a',
 							{ href: '#', className: 'header item' },
-							_react2.default.createElement('img', { className: 'logo', src: 'https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png' }),
+							_react2.default.createElement('img', { onMouseEnter: this.mouseEnter, className: 'logo', src: 'https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png' }),
 							'Lista kontakt\xF3w'
 						),
 						_react2.default.createElement(
@@ -9454,6 +9509,11 @@ document.addEventListener('DOMContentLoaded', function () {
 						)
 					)
 				);
+			}
+		}, {
+			key: 'mouseEnter',
+			value: function mouseEnter() {
+				console.log("Najechany");
 			}
 		}]);
 

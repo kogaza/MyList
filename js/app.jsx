@@ -3,15 +3,46 @@ import	ReactDOM	from	'react-dom';
 document.addEventListener('DOMContentLoaded',function(){
 
 				class App extends React.Component {
+					constructor() {
+						super();
+						this.state = {
+							counter: 0,
+							sumCounter: 0,
+							sumDouble: 0
+						};
+					}
+					
 					render() {
 						return (
 							<div>
+								<button onClick={this.increment.bind(this)}>+</button>
+								<output onDoubleClick={this.sumDouble.bind(this)}>{this.state.counter}</output>
+								<button onClick={this.decrement.bind(this)}>-</button>
+								<output onDoubleClick={this.sumDouble.bind(this)}>{this.state.sumCounter}</output>
+								<output onDoubleClick={this.sumDouble.bind(this)}>{this.state.sumDouble}</output>
 								<AppHeader />
 								<main className="ui main text container">
 									<ContactList />
 								</main>
 							</div>
 						);
+					}
+					increment() {
+						this.setState({
+							counter: this.state.counter + 1,
+							sumCounter: this.state.sumCounter + 1
+						})
+					}
+					decrement() {
+						this.setState({
+							counter: this.state.counter - 1,
+							sumCounter: this.state.sumCounter + 1
+						})
+					}
+					sumDouble() {
+						this.setState({
+							sumDouble: this.state.sumDouble + 1
+						})
 					}
 				}
 
@@ -21,7 +52,7 @@ document.addEventListener('DOMContentLoaded',function(){
 							<header className="ui fixed menu">
 								<nav className="ui container">
 									<a href="#" className="header item">
-										<img className="logo" src="https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png" />
+										<img onMouseEnter={this.mouseEnter} className="logo" src="https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png" />
 										Lista kontaktów
 									</a>
 									<div className="header item">
@@ -30,6 +61,10 @@ document.addEventListener('DOMContentLoaded',function(){
 								</nav>
 							</header>
 						);
+					}
+					mouseEnter() {
+						console.log("Najechany");
+						
 					}
 				}
 
