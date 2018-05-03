@@ -9450,11 +9450,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		    name = _ref.name,
 		    department = _ref.department;
 
-		var imgUrl = 'https://api.adorable.io/avatars/55/${login}.png';
 		return _react2.default.createElement(
 			'li',
 			{ className: 'item' },
-			_react2.default.createElement('img', { src: imgUrl, className: 'ui mini rounded image' }),
+			_react2.default.createElement(ShowAvatar, { login: login }),
 			_react2.default.createElement(
 				'div',
 				{ className: 'content' },
@@ -9470,6 +9469,13 @@ document.addEventListener('DOMContentLoaded', function () {
 				)
 			)
 		);
+	}
+
+	function ShowAvatar(_ref2) {
+		var login = _ref2.login;
+
+		var imgUrl = 'https://api.adorable.io/avatars/55/' + login + '.png';
+		return _react2.default.createElement('img', { src: imgUrl, className: 'ui mini rounded image' });
 	}
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
