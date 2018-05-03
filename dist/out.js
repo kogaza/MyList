@@ -9372,6 +9372,8 @@ module.exports = getHostComponentFromComposite;
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(80);
 
 var _react2 = _interopRequireDefault(_react);
@@ -9382,101 +9384,182 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 document.addEventListener('DOMContentLoaded', function () {
+	var App = function (_React$Component) {
+		_inherits(App, _React$Component);
 
-	function App() {
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(AppHeader, null),
-			_react2.default.createElement(
-				'main',
-				{ className: 'ui main text container' },
-				_react2.default.createElement(ContactList, null)
-			)
-		);
-	}
+		function App() {
+			_classCallCheck(this, App);
 
-	function AppHeader() {
-		return _react2.default.createElement(
-			'header',
-			{ className: 'ui fixed menu' },
-			_react2.default.createElement(
-				'nav',
-				{ className: 'ui container' },
-				_react2.default.createElement(
-					'a',
-					{ href: '#', className: 'header item' },
-					_react2.default.createElement('img', { className: 'logo', src: 'https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png' }),
-					'Lista kontakt\xF3w'
-				),
-				_react2.default.createElement(
+			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+		}
+
+		_createClass(App, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
 					'div',
-					{ className: 'header item' },
+					null,
+					_react2.default.createElement(AppHeader, null),
 					_react2.default.createElement(
-						'button',
-						{ className: 'ui button' },
-						'Dodaj'
+						'main',
+						{ className: 'ui main text container' },
+						_react2.default.createElement(ContactList, null)
 					)
-				)
-			)
-		);
-	}
+				);
+			}
+		}]);
 
-	function ContactList() {
-		return _react2.default.createElement(
-			'ul',
-			{ className: 'ui relaxed divided list selection' },
-			_react2.default.createElement(ContactItem, {
-				login: 'typeofweb1',
-				name: 'Lena',
-				department: 'JavaScript Developer'
-			}),
-			_react2.default.createElement(ContactItem, {
-				login: 'typeofweb2',
-				name: 'Brian',
-				department: 'HumanResources'
-			}),
-			_react2.default.createElement(ContactItem, {
-				login: 'typeofweb3',
-				name: 'Rick',
-				department: 'QA'
-			})
-		);
-	}
+		return App;
+	}(_react2.default.Component);
 
-	function ContactItem(_ref) {
-		var login = _ref.login,
-		    name = _ref.name,
-		    department = _ref.department;
+	var AppHeader = function (_React$Component2) {
+		_inherits(AppHeader, _React$Component2);
 
-		return _react2.default.createElement(
-			'li',
-			{ className: 'item' },
-			_react2.default.createElement(ShowAvatar, { login: login }),
-			_react2.default.createElement(
-				'div',
-				{ className: 'content' },
-				_react2.default.createElement(
-					'h4',
-					{ className: 'header' },
-					name
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'description' },
-					department
-				)
-			)
-		);
-	}
+		function AppHeader() {
+			_classCallCheck(this, AppHeader);
 
-	function ShowAvatar(_ref2) {
-		var login = _ref2.login;
+			return _possibleConstructorReturn(this, (AppHeader.__proto__ || Object.getPrototypeOf(AppHeader)).apply(this, arguments));
+		}
 
-		var imgUrl = 'https://api.adorable.io/avatars/55/' + login + '.png';
-		return _react2.default.createElement('img', { src: imgUrl, className: 'ui mini rounded image' });
-	}
+		_createClass(AppHeader, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'header',
+					{ className: 'ui fixed menu' },
+					_react2.default.createElement(
+						'nav',
+						{ className: 'ui container' },
+						_react2.default.createElement(
+							'a',
+							{ href: '#', className: 'header item' },
+							_react2.default.createElement('img', { className: 'logo', src: 'https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png' }),
+							'Lista kontakt\xF3w'
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'header item' },
+							_react2.default.createElement(
+								'button',
+								{ className: 'ui button' },
+								'Dodaj'
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return AppHeader;
+	}(_react2.default.Component);
+
+	var ContactList = function (_React$Component3) {
+		_inherits(ContactList, _React$Component3);
+
+		function ContactList() {
+			_classCallCheck(this, ContactList);
+
+			return _possibleConstructorReturn(this, (ContactList.__proto__ || Object.getPrototypeOf(ContactList)).apply(this, arguments));
+		}
+
+		_createClass(ContactList, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'ul',
+					{ className: 'ui relaxed divided list selection' },
+					_react2.default.createElement(ContactItem, {
+						login: 'typeofweb1',
+						name: 'Lena',
+						department: 'JavaScript Developer'
+					}),
+					_react2.default.createElement(ContactItem, {
+						login: 'typeofweb2',
+						name: 'Brian',
+						department: 'HumanResources'
+					}),
+					_react2.default.createElement(ContactItem, {
+						login: 'typeofweb3',
+						name: 'Rick',
+						department: 'QA'
+					})
+				);
+			}
+		}]);
+
+		return ContactList;
+	}(_react2.default.Component);
+
+	var ContactItem = function (_React$Component4) {
+		_inherits(ContactItem, _React$Component4);
+
+		function ContactItem() {
+			_classCallCheck(this, ContactItem);
+
+			return _possibleConstructorReturn(this, (ContactItem.__proto__ || Object.getPrototypeOf(ContactItem)).apply(this, arguments));
+		}
+
+		_createClass(ContactItem, [{
+			key: 'render',
+			value: function render() {
+				var _props = this.props,
+				    login = _props.login,
+				    name = _props.name,
+				    department = _props.department;
+
+				return _react2.default.createElement(
+					'li',
+					{ className: 'item' },
+					_react2.default.createElement(ShowAvatar, { login: login }),
+					_react2.default.createElement(
+						'div',
+						{ className: 'content' },
+						_react2.default.createElement(
+							'h4',
+							{ className: 'header' },
+							name
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'description' },
+							department
+						)
+					)
+				);
+			}
+		}]);
+
+		return ContactItem;
+	}(_react2.default.Component);
+
+	var ShowAvatar = function (_React$Component5) {
+		_inherits(ShowAvatar, _React$Component5);
+
+		function ShowAvatar() {
+			_classCallCheck(this, ShowAvatar);
+
+			return _possibleConstructorReturn(this, (ShowAvatar.__proto__ || Object.getPrototypeOf(ShowAvatar)).apply(this, arguments));
+		}
+
+		_createClass(ShowAvatar, [{
+			key: 'render',
+			value: function render() {
+				var login = this.props.login;
+
+				var imgUrl = 'https://api.adorable.io/avatars/55/' + login + '.png';
+				return _react2.default.createElement('img', { src: imgUrl, className: 'ui mini rounded image' });
+			}
+		}]);
+
+		return ShowAvatar;
+	}(_react2.default.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 });
