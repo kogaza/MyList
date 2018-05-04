@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',function(){
 						this.state = {
 							counter: 0,
 							sumCounter: 0,
-							sumDouble: 0
+							sumDouble: 0,
 						};
 					}
 					
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded',function(){
 								<AppHeader />
 								<main className="ui main text container">
 									<ContactList />
+									<NameSurname />
 								</main>
 							</div>
 						);
@@ -64,7 +65,6 @@ document.addEventListener('DOMContentLoaded',function(){
 					}
 					mouseEnter() {
 						console.log("Najechany");
-						
 					}
 				}
 
@@ -117,6 +117,35 @@ document.addEventListener('DOMContentLoaded',function(){
 					}
 				}
 
+				class NameSurname extends React.Component {
+					constructor() {
+						super();
+						this.state = {
+							first: " ",
+							last: " "
+						};
+					}
+					firstName(e) {
+						this.setState({
+							first: e.target.value
+						});
+					}
+					lastName(e) {
+						this.setState({
+							last: " " + e.target.value
+						});
+					}
+					render() {
+						return (
+							<form>
+								<input type="text" onInput={this.firstName.bind(this)} />
+								<input type="text" onInput={this.lastName.bind(this)} />
+								<output>{this.state.first}</output>
+								<output>{this.state.last}</output>
+							</form>
+						);
+					}
+				}
 
 				ReactDOM.render(
 						<App />,

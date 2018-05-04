@@ -9442,7 +9442,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					_react2.default.createElement(
 						'main',
 						{ className: 'ui main text container' },
-						_react2.default.createElement(ContactList, null)
+						_react2.default.createElement(ContactList, null),
+						_react2.default.createElement(NameSurname, null)
 					)
 				);
 			}
@@ -9619,6 +9620,60 @@ document.addEventListener('DOMContentLoaded', function () {
 		}]);
 
 		return ShowAvatar;
+	}(_react2.default.Component);
+
+	var NameSurname = function (_React$Component6) {
+		_inherits(NameSurname, _React$Component6);
+
+		function NameSurname() {
+			_classCallCheck(this, NameSurname);
+
+			var _this6 = _possibleConstructorReturn(this, (NameSurname.__proto__ || Object.getPrototypeOf(NameSurname)).call(this));
+
+			_this6.state = {
+				first: " ",
+				last: " "
+			};
+			return _this6;
+		}
+
+		_createClass(NameSurname, [{
+			key: 'firstName',
+			value: function firstName(e) {
+				this.setState({
+					first: e.target.value
+				});
+			}
+		}, {
+			key: 'lastName',
+			value: function lastName(e) {
+				this.setState({
+					last: " " + e.target.value
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'form',
+					null,
+					_react2.default.createElement('input', { type: 'text', onInput: this.firstName.bind(this) }),
+					_react2.default.createElement('input', { type: 'text', onInput: this.lastName.bind(this) }),
+					_react2.default.createElement(
+						'output',
+						null,
+						this.state.first
+					),
+					_react2.default.createElement(
+						'output',
+						null,
+						this.state.last
+					)
+				);
+			}
+		}]);
+
+		return NameSurname;
 	}(_react2.default.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
