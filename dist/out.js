@@ -9738,7 +9738,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			var _this8 = _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).call(this, props));
 
 			_this8.state = {
-				fromParent: Number(props.value),
+				// fromParent: Number(props.value),
 				current: Number(props.value)
 			};
 
@@ -9750,9 +9750,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		_createClass(Child, [{
 			key: 'componentWillReceiveProps',
 			value: function componentWillReceiveProps(nextProps) {
-				if (nextProps.value != this.state.fromParent) {
+				if (nextProps.value != this.state.current) {
 					this.setState({
-						fromParent: Number(nextProps.value),
+						// fromParent: Number(nextProps.value),
 						current: Number(nextProps.value)
 					});
 				}

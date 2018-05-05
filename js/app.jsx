@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded',function(){
 					constructor(props) {
 						super(props);
 						this.state = {
-							fromParent: Number(props.value),
+							// fromParent: Number(props.value),
 							current: Number(props.value)
 						}
 
@@ -196,9 +196,9 @@ document.addEventListener('DOMContentLoaded',function(){
 					}
 
 					componentWillReceiveProps(nextProps) {
-						if(nextProps.value != this.state.fromParent) {
+						if(nextProps.value != this.state.current) {
 							this.setState({
-								fromParent: Number(nextProps.value),
+								// fromParent: Number(nextProps.value),
 								current: Number(nextProps.value)
 							});
 						}
