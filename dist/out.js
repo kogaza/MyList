@@ -9443,7 +9443,8 @@ document.addEventListener('DOMContentLoaded', function () {
 						'main',
 						{ className: 'ui main text container' },
 						_react2.default.createElement(ContactList, null),
-						_react2.default.createElement(NameSurname, null)
+						_react2.default.createElement(NameSurname, null),
+						_react2.default.createElement(Parent, null)
 					)
 				);
 			}
@@ -9674,6 +9675,128 @@ document.addEventListener('DOMContentLoaded', function () {
 		}]);
 
 		return NameSurname;
+	}(_react2.default.Component);
+
+	var Parent = function (_React$Component7) {
+		_inherits(Parent, _React$Component7);
+
+		function Parent(props) {
+			_classCallCheck(this, Parent);
+
+			var _this7 = _possibleConstructorReturn(this, (Parent.__proto__ || Object.getPrototypeOf(Parent)).call(this, props));
+
+			_this7.state = {
+				input: null,
+				forwardValue: null
+			};
+
+			_this7.handleClick = _this7.handleClick.bind(_this7);
+			_this7.handleChange = _this7.handleChange.bind(_this7);
+			return _this7;
+		}
+
+		_createClass(Parent, [{
+			key: 'handleChange',
+			value: function handleChange(event) {
+				this.setState({
+					input: event.target.value
+				});
+			}
+		}, {
+			key: 'handleClick',
+			value: function handleClick() {
+				this.setState({
+					forwardValue: this.state.input
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement('input', { type: 'number', onChange: this.handleChange }),
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.handleClick },
+						'Propagate to child'
+					),
+					this.state.forwardValue && _react2.default.createElement(Child, { value: this.state.forwardValue })
+				);
+			}
+		}]);
+
+		return Parent;
+	}(_react2.default.Component);
+
+	var Child = function (_React$Component8) {
+		_inherits(Child, _React$Component8);
+
+		function Child(props) {
+			_classCallCheck(this, Child);
+
+			var _this8 = _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).call(this, props));
+
+			_this8.state = {
+				fromParent: Number(props.value),
+				current: Number(props.value)
+			};
+
+			_this8.handleIncrement = _this8.handleIncrement.bind(_this8);
+			_this8.handleDecrement = _this8.handleDecrement.bind(_this8);
+			return _this8;
+		}
+
+		_createClass(Child, [{
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextProps) {
+				if (nextProps.value != this.state.fromParent) {
+					this.setState({
+						fromParent: Number(nextProps.value),
+						current: Number(nextProps.value)
+					});
+				}
+			}
+		}, {
+			key: 'handleIncrement',
+			value: function handleIncrement() {
+				this.setState({
+					current: this.state.current + 1
+				});
+			}
+		}, {
+			key: 'handleDecrement',
+			value: function handleDecrement() {
+				this.setState({
+					current: this.state.current - 1
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'label',
+						null,
+						this.state.current
+					),
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.handleIncrement },
+						'+'
+					),
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.handleDecrement },
+						'-'
+					)
+				);
+			}
+		}]);
+
+		return Child;
 	}(_react2.default.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
